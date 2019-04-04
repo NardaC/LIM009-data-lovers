@@ -89,6 +89,10 @@ const inputSortData = [
 
 const outputSortData = [
   {
+    Year: '1965',
+    Injuries: 'Register not found'
+  },
+  {
     Year: '1991',
     Injuries: 82
   },
@@ -99,19 +103,11 @@ const outputSortData = [
   {
     Year: '2007',
     Injuries: 211
-  },
-  {
-    Year: '1965',
-    Injuries: 'Register not found'
   },
 ];
 
 const outputSortDescending = [
   {
-    Year: '1965',
-    Injuries: 'Register not found'
-  },
-  {
     Year: '2007',
     Injuries: 211
   },
@@ -122,6 +118,10 @@ const outputSortDescending = [
   {
     Year: '1991',
     Injuries: 82
+  },
+  {
+    Year: '1965',
+    Injuries: 'Register not found'
   },
 ];
 
@@ -146,7 +146,7 @@ const inputCompute = [
 
 const outputCompute = 431;
 
-describe('Injuries',() => {
+describe('Injuries', () => {
   it('deberia ser un array', () => {
     expect(Array.isArray(['INJURIES'])).toBe(true);
   });
@@ -183,11 +183,11 @@ describe('sortData ', () => {
   it('debería ser una función', () => {
     expect(typeof sortData).toBe('function');
   });
-  it('ordenado ascendente por Injuries ', () => {
-    expect(window.sortData(inputSortData, 'Injuries', 'A')).toEqual(outputSortData);
+  it('ordenado ascendente por Año ', () => {
+    expect(window.sortData(inputSortData, 'Year', 'A')).toEqual(outputSortData);
   });
-  it('ordenado descendente por Injuries ', () => {
-    expect(window.sortData(inputSortData, 'Injuries', 'D')).toEqual(outputSortDescending);
+  it('ordenado descendente por Año ', () => {
+    expect(window.sortData(inputSortData, 'Year', 'D')).toEqual(outputSortDescending);
   });
 });
 
