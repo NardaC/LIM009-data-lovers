@@ -19,7 +19,7 @@ const sectionCategorys = document.getElementById('section_category');
 const selectTableCategory = document.getElementById('select_table_categoria');
 const userImage = document.getElementById('user-image');
 const nameUser = document.getElementById('name_user');
-const tableStructureCategory = document.getElementById('table_structure_category');
+// const tableStructureCategory = document.getElementById('table_structure_category');
 const tableStructureYear = document.getElementById('table-structure-year');
 const sectionSuma = document.getElementById('suma_section');
 
@@ -49,6 +49,7 @@ btnSearch.addEventListener('click', () => {
   userImage.classList.toggle('classShow');
   nameUser.classList.toggle('classShow');
   tableStructureYear.classList.toggle('classShow');
+
   const arrayFilterYear = window.filterByYear(data, selectYear);
   // console.log(window.filterByYear(data, selectYear));
   arrayFilterYear.forEach((i) => {
@@ -76,19 +77,18 @@ const printSuma = (data, category) => {
 };
 
 const viewCategory = (idCategory, categoryName, categoryLabel) => {
-
-  sectionCategorys.querySelectorAll("section").forEach(function(element) {
+  sectionCategorys.querySelectorAll('section').forEach(function(element) {
     element.classList.remove('classShow');
-  })
+  });
   document.getElementById(idCategory).classList.add('classShow');
-  //console.log(sectionCategorys.querySelectorAll("section"));
-
+  // console.log(sectionCategorys.querySelectorAll("section"));
   selectTableCategory.classList.remove('classHidden');
   sectionSuma.classList.add('classShow');
 
   const dataCategory = window.showCategory(data, categoryName);
   printYears(dataCategory);
   printSuma(dataCategory, categoryLabel);
+  // SORTTTTTTTTTTTTTT//
   const selectOrder = document.getElementById('select_order');
   selectOrder.addEventListener('change', () => {
     let sortOrder = document.getElementById('select_order').value;
