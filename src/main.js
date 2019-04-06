@@ -19,7 +19,6 @@ const sectionCategorys = document.getElementById('section_category');
 const selectTableCategory = document.getElementById('select_table_categoria');
 const userImage = document.getElementById('user-image');
 const nameUser = document.getElementById('name_user');
-const tableStructureCategory = document.getElementById('table_structure_category');
 const tableStructureYear = document.getElementById('table-structure-year');
 const sectionSuma = document.getElementById('suma_section');
 
@@ -76,22 +75,21 @@ const printSuma = (data, category) => {
 };
 
 const viewCategory = (idCategory, categoryName, categoryLabel) => {
-
   sectionCategorys.querySelectorAll("section").forEach(function(element) {
-    element.classList.remove('classShow');
+    element.classList.remove('classShow');//limpiar todas las secciones
   })
-  document.getElementById(idCategory).classList.add('classShow');
+  document.getElementById(idCategory).classList.add('classShow');//mostrar las secciones activas
   //console.log(sectionCategorys.querySelectorAll("section"));
-
   selectTableCategory.classList.remove('classHidden');
   sectionSuma.classList.add('classShow');
 
   const dataCategory = window.showCategory(data, categoryName);
   printYears(dataCategory);
   printSuma(dataCategory, categoryLabel);
+
   const selectOrder = document.getElementById('select_order');
   selectOrder.addEventListener('change', () => {
-    let sortOrder = document.getElementById('select_order').value;
+    let sortOrder = selectOrder.value;
     let listOrder = [];
     if (sortOrder === 'ascendente') {
       listOrder = window.sortData(dataCategory, 'Year', 'A');

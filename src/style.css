@@ -108,7 +108,7 @@ h1{
   background: #573B68;
   height: 340px;
 }
-h4{
+h2{
   text-align: center;
   color: #ffffff;
   padding-top: 20px;
@@ -129,7 +129,6 @@ h4{
   height: 209px;
 }
 .imgs-category{
-  float: right;
   display: inline-block;
 }
 #banner{
