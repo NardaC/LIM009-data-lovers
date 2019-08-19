@@ -148,7 +148,7 @@ select {
 .block-order{
   width: 50%;
   margin: 10px auto;
-  
+
 }
 #select_order{
   width: 20%;
@@ -222,9 +222,12 @@ section{
 .classHidden{
   display:none;
 }
+/* no mostrar*/
 .classShow{
   display: inline;
 }
+/*mostrar*/
+
 /* CSS PARA LINKS DE REDES SOCIALES*/
 #social-links{
   margin-top: 15px;
@@ -266,7 +269,7 @@ input{
   }
   #user-image{
     width: 18px;
-    height: 18px; 
+    height: 18px;
     float: left;
   }
   #name_user{
@@ -359,7 +362,7 @@ input{
 .block-order{
   width: 85%;
   margin: 10px auto;
-  
+
 }
 #select_order{
   width: 30%;

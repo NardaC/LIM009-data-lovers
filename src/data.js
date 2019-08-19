@@ -1,3 +1,4 @@
+
 const filterByYear = (data, selectYear) => {
   const dataYear = data.filter(dat => dat.Year.substr(0, 4) === selectYear);
   return dataYear;
@@ -12,6 +13,7 @@ const showCategory = (data, category) => {
   });
   return dataCategory;
 };
+
 
 const sortData = (data, sortBy, sortOrder) => {
   const listOrdered = data.sort((prev, next)=> {
@@ -34,7 +36,7 @@ const computeStats = (data) => {
   let suma = 0;
   for (let i = 0; i < data.length; i++) {
     if (data[i].Injuries !== 'Register not found') {
-      suma += data[i].Injuries;// sumame lo que no sea register not found
+      suma += data[i].Injuries; 
     }
   }
   return suma;

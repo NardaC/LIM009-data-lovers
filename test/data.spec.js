@@ -183,10 +183,10 @@ describe('sortData ', () => {
   it('debería ser una función', () => {
     expect(typeof sortData).toBe('function');
   });
-  it('ordenado ascendente por Año ', () => {
+  it('ordenado ascendente por Años ', () => {
     expect(window.sortData(inputSortData, 'Year', 'A')).toEqual(outputSortData);
   });
-  it('ordenado descendente por Año ', () => {
+  it('ordenado descendente por Años ', () => {
     expect(window.sortData(inputSortData, 'Year', 'D')).toEqual(outputSortDescending);
   });
 });
@@ -199,4 +199,3 @@ describe('computeStats ', () => {
     expect(window.computeStats(inputCompute)).toBe(outputCompute);
   });
 });
-
