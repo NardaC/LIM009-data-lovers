@@ -5,7 +5,7 @@ const filterByYear = (data, selectYear) => {
 
 const showCategory = (data, category) => {
   let dataCategory = [];
-  data.forEach(function(dat) {
+  cargarJason().forEach((dat)=> {
     const value = dat[category] === null ? 'Register not found' : dat[category];
     const year = dat.Year.substr(0, 4);
     dataCategory.push({Injuries: value, Year: year});
@@ -14,18 +14,18 @@ const showCategory = (data, category) => {
 };
 
 const sortData = (data, sortBy, sortOrder) => {
-  const listOrdered = data.sort(function(prev, next) {
+  const listOrdered = data.sort((prev, next)=> {
     if (prev[sortBy] > next[sortBy]) {
       return 1;
     } else if (prev[sortBy] < next[sortBy]) {
       return -1;
-    } else if (prev[sortBy] === next[sortBy]) {
+    } else{//(prev[sortBy] === next[sortBy])
       return 0;
     }
   });
   if (sortOrder === 'A') {
     return listOrdered;
-  } else if (sortOrder === 'D') {
+  } else{//(sortOrder === 'D') 
     return listOrdered.reverse();
   }
 };

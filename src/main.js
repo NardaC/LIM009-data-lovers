@@ -1,4 +1,13 @@
-const data = INJURIES;
+const cargarJason = ()=>{
+  fetch('./data/injuries/injuries.json')
+  .then((res) => res.json())
+  .then(INJURIES => {
+    console.log(INJURIES);  
+  });
+};
+cargarJason();
+
+//const data = INJURIES;
 const btnTrain = document.getElementById('btn_train');
 const btnEnter = document.getElementById('btn_enter');
 const btnPedalcyclists = document.getElementById('btn_pedalcyclists');
@@ -25,7 +34,7 @@ const sectionSuma = document.getElementById('suma_section');
 
 sectionLogin.classList.toggle('classShow');
 sectionFooter.classList.toggle('classHidden');
-selectTableCategory.classList.add('classHidden');
+selectTableCategory.classList.toggle('classHidden');
 userImage.classList.toggle('classHidden');
 
 btnEnter.addEventListener('click', (enter) => {
@@ -52,15 +61,16 @@ btnSearch.addEventListener('click', () => {
   const arrayFilterYear = window.filterByYear(data, selectYear);
   // console.log(window.filterByYear(data, selectYear));
   arrayFilterYear.forEach((i) => {
-    tableYear.innerHTML = `<td>Train:</td><td>${i.Total_Injured_Persons_Railroad_Train_Accidents}</td>`;
-    tableYear.innerHTML += `<td>Pedalcyclist:</td><td>${i.Total_Injured_Persons_Pedalcyclists}</td>`;
-    tableYear.innerHTML += `<td>Motocyclist:</td><td>${i.Total_Injured_Persons_Motorcyclists}</td>`;
-    tableYear.innerHTML += `<td>Car:</td><td>${i.Total_Injured_Persons_Passenger_Car_Occupants}</td>`;
-    tableYear.innerHTML += `<td>Bus:</td><td>${i.Total_Injured_Persons_Bus_Occupants}</td>`;
+    tableYear.innerHTML = `<td>Train:</td><td>${i[train]}</td>`;
+    tableYear.innerHTML += `<td>Pedalcyclist:</td><td>${i[pedalcyclists]}</td>`;
+    tableYear.innerHTML += `<td>Motocyclist:</td><td>${i[motorcyclists]}</td>`;
+    tableYear.innerHTML += `<td>Car:</td><td>${i[car]}</td>`;
+    tableYear.innerHTML += `<td>Bus:</td><td>${i[bus]}</td>`;
   });
 });
 
 const printYears = (data) => {
+  cargarJason(data)
   const tableCategory = document.getElementById('table_category');
   tableCategory.innerHTML = '';
   data.forEach((ele) => {
@@ -76,25 +86,25 @@ const printSuma = (data, category) => {
 };
 
 const viewCategory = (idCategory, categoryName, categoryLabel) => {
-  sectionCategorys.querySelectorAll("section").forEach(function(element) {
+  sectionCategorys.querySelectorAll("section").forEach((element)=> {
     element.classList.remove('classShow');
   })
   document.getElementById(idCategory).classList.add('classShow');
   //console.log(sectionCategorys.querySelectorAll("section"));
   selectTableCategory.classList.remove('classHidden');
   sectionSuma.classList.add('classShow');
-  const dataCategory = window.showCategory(data, categoryName);
+  const dataCategory = window.showCategory(cargarJason(), categoryName);
   printYears(dataCategory);
   printSuma(dataCategory, categoryLabel);
-  const selectOrder = document.getElementById('select_order');
   
+  const selectOrder = document.getElementById('select_order');
   selectOrder.addEventListener('change', () => {
     let sortOrder = document.getElementById('select_order').value;
     let listOrder = [];
     if (sortOrder === 'ascendente') {
       listOrder = window.sortData(dataCategory, 'Year', 'A');
     } else if (sortOrder === 'descendente') {
-      listOrder = window.sortData(dataCategory, 'Year', 'D');
+      listOrder = window.sortData(dataCategory, 'Year', 'A').reverse();
     }
     printYears(listOrder);
   });
