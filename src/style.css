@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
 body{
   margin: 0;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Open Sans', sans-serif;
   background: #C9D6E2;
   font-size: 110%;
 }
@@ -39,8 +39,8 @@ nav{
   text-align: center;
   }
   .menu ol{
-    display: table;
-    width: 100%;
+    display: flex;
+    justify-content: space-between
   }
   .menu li{
     display: table-cell;
@@ -82,7 +82,7 @@ h1{
   color: #2D3D76;
 }
 .btn-category{
-  font-family:'Playfair Display', serif;
+  font-family:'Open Sans', sans-serif;
   text-decoration: none;
   padding: 10px;
   font-weight: 400;
@@ -132,10 +132,7 @@ h2{
   display: inline-block;
 }
 #banner{
-  width: 1023px;
-  height: 400px;
-  margin: 0 auto;
-  display: inherit;
+  width: 100%
 }
 select {
   width: 200px;
@@ -150,7 +147,7 @@ select {
 .block-order{
   width: 50%;
   margin: 10px auto;
-  
+
 }
 #select_order{
   width: 20%;
@@ -180,7 +177,7 @@ td{
   text-align: center;
   border: 1px solid #505050;
   color: #2D3D76;
-  background: #BDA06E;
+  background: #ffffff;
   margin-top: 20px;
   border-collapse: collapse;
 }
@@ -210,9 +207,12 @@ footer{
   margin-top:150px;
   width:100%;
   height:100px;
-  background-color:#5A5757;
+  background-color:#2D3D76;
   text-align: center;
   }
+#textFooter{
+  color:#ffffff
+}
 
 /*ocultar y mostrar pantallas*/
 section{
@@ -221,9 +221,12 @@ section{
 .classHidden{
   display:none;
 }
+/* no mostrar*/
 .classShow{
   display: inline;
 }
+/*mostrar*/
+
 /* CSS PARA LINKS DE REDES SOCIALES*/
 #social-links{
   margin-top: 15px;
@@ -265,7 +268,7 @@ input{
   }
   #user-image{
     width: 18px;
-    height: 18px; 
+    height: 18px;
     float: left;
   }
   #name_user{
@@ -358,7 +361,7 @@ input{
 .block-order{
   width: 85%;
   margin: 10px auto;
-  
+
 }
 #select_order{
   width: 30%;
